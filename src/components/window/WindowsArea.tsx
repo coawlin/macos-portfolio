@@ -19,7 +19,6 @@ export const WindowsArea = () => {
   // Update the active app Z Index here
   useEffect(() => {
     setActiveAppZIndex(activeAppZIndex + 2);
-    console.log('Updated Z Index');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeApp]);
 

@@ -12,24 +12,29 @@ type ThemeContextType = {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window === 'undefined') return 'light';
+  const [theme, setTheme] = useState<Theme>('light');
 
-    // Load theme from localStorage or system preference
-    const savedTheme = localStorage.getItem('theme') as Theme;
-    if (savedTheme) {
-      return savedTheme;
-    }
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    return prefersDark ? 'dark' : 'light';
-  });
-
+  // Load theme preference and update DOM
   useEffect(() => {
-    // Update body class
+    // This runs only once after mount
+    const savedTheme = localStorage.getItem('theme') as Theme;
+    const initialTheme =
+      savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    // Update state and DOM together to avoid hydration issues
+    if (initialTheme !== theme) {
+      setTheme(initialTheme);
+    }
+
+    document.body.classList.remove('theme-light', 'theme-dark');
+    document.body.classList.add(`theme-${initialTheme}`);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Update body class and localStorage when theme changes after initialization
+  useEffect(() => {
     document.body.classList.remove('theme-light', 'theme-dark');
     document.body.classList.add(`theme-${theme}`);
-
-    // Save to localStorage
     localStorage.setItem('theme', theme);
   }, [theme]);
 

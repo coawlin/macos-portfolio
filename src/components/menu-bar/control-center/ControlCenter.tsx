@@ -67,7 +67,6 @@ const Toggle: React.FC<{ filled: boolean } & JSX.IntrinsicElements['button']> = 
   <button
     className={`${styles.toggle} ${filled ? styles.filled : ''}`}
     onClick={(e) => {
-      console.log(e);
       e.preventDefault();
       e.stopPropagation();
     }}
