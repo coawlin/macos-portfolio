@@ -4,12 +4,17 @@ import AppleIcon from '@mui/icons-material/Apple';
 import { motion } from 'framer-motion';
 import styles from './SplashScreen.module.scss';
 
-export default function SplashScreen() {
+interface SplashScreenProps {
+  onComplete?: () => void;
+}
+
+export default function SplashScreen({ onComplete }: SplashScreenProps) {
   return (
     <motion.div
       initial={{ visibility: 'visible' }}
       animate={{ visibility: 'hidden' }}
       transition={{ delay: 2, duration: 0.5 }}
+      onAnimationComplete={() => onComplete?.()}
       className={styles.splashScreen}
     >
       <motion.div

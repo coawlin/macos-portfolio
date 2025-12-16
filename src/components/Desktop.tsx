@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import bg from '../../public/assets/wallpapers/3-2.jpg';
 import styles from './Desktop.module.scss';
 import Dock from './dock/Dock';
@@ -10,16 +10,21 @@ import { WindowsArea } from './window/WindowsArea';
 
 export default function Desktop() {
   const outerRef = useRef<HTMLDivElement | null>(null);
+  const [showContent, setShowContent] = useState(false);
 
   return (
     <>
       <main ref={outerRef} className={styles.desktop} style={{ backgroundImage: `url(${bg.src})` }}>
-        <MenuBar />
-        <WindowsArea />
-        <Dock />
+        {showContent && (
+          <>
+            <MenuBar />
+            <WindowsArea />
+            <Dock />
+          </>
+        )}
       </main>
 
-      <SplashScreen />
+      <SplashScreen onComplete={() => setShowContent(true)} />
     </>
   );
 }
