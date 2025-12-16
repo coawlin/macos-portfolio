@@ -2,12 +2,12 @@
 
 .container {
   @include portfolio-container;
-  padding: 3rem 2rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  max-width: 1000px;
+  gap: 2rem;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 // Header
@@ -18,13 +18,15 @@
 
 .title {
   @include section-title;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 800;
-  margin: 0 0 1rem 0;
+  margin: 0 0 0.5rem 0;
 }
 
 .subtitle {
-  @include text-secondary;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.5;
   margin: 0;
   max-width: 600px;
   margin: 0 auto;

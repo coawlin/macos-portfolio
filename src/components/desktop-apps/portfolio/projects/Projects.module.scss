@@ -32,7 +32,7 @@
   border-radius: 8px;
   background: var(--surface-primary);
   color: var(--text-secondary);
-  cursor: pointer;
+  cursor: var(--cursor-default);
   transition: all 0.2s ease;
   position: relative;
 
@@ -127,7 +127,7 @@
   color: var(--text-secondary);
   font-size: 0.875rem;
   font-weight: 600;
-  cursor: pointer;
+  cursor: var(--cursor-default);
   border-radius: 6px;
   transition: all 0.2s ease;
 
@@ -164,7 +164,7 @@
   color: #ef4444;
   font-size: 0.75rem;
   font-weight: 600;
-  cursor: pointer;
+  cursor: var(--cursor-default);
   transition: all 0.2s ease;
 
   &:hover {
@@ -207,7 +207,7 @@
   gap: 0.75rem;
   padding: 0.625rem 0.75rem;
   border-radius: 6px;
-  cursor: pointer;
+  cursor: var(--cursor-default);
   transition: background 0.2s ease;
 
   &:hover {
@@ -220,7 +220,7 @@
   height: 16px;
   border: 2px solid var(--border);
   border-radius: 4px;
-  cursor: pointer;
+  cursor: var(--cursor-default);
   appearance: none;
   transition: all 0.2s ease;
 
@@ -292,7 +292,7 @@
   background: transparent;
   color: var(--gradient-start);
   font-size: 0.7rem;
-  cursor: pointer;
+  cursor: var(--cursor-default);
   border-radius: 50%;
   transition: all 0.2s ease;
 
@@ -318,7 +318,7 @@
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 1.5rem;
-  cursor: pointer;
+  cursor: var(--cursor-default);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   overflow: hidden;
@@ -488,7 +488,7 @@
   background: rgba(0, 0, 0, 0.1);
   color: var(--text-primary);
   font-size: 1.25rem;
-  cursor: pointer;
+  cursor: var(--cursor-default);
   display: flex;
   align-items: center;
   justify-content: center;

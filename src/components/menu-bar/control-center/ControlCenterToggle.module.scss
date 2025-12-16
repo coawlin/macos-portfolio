@@ -18,7 +18,7 @@
 
   margin-right: 0.7rem;
 
-  cursor: pointer;
+  cursor: var(--cursor-default);
 
   svg,
   svg path {

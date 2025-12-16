@@ -24,7 +24,7 @@
 
   transition: box-shadow 100ms ease;
 
-  cursor: pointer;
+  cursor: var(--cursor-default);
 
   svg {
     pointer-events: none;
