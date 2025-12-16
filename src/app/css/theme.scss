@@ -1,0 +1,101 @@
+$blue-70: #0a85ff;
+
+/**
+ * Primitive color variables
+ * 
+ * Naming convention:
+ * - {theme}-bg-{level}: Background colors (surfaces, containers)
+ * - {theme}-on-{level}: Foreground colors (text, icons that appear ON backgrounds)
+ * - {level}: Scale from 10 (lightest/primary) to 100 (darkest/subtle)
+ * 
+ * Example: $light-bg-10 = white background, $light-on-10 = dark text on that background
+ */
+$light-bg-10: #ffffff;
+$light-bg-20: #f5f5f7;
+
+$light-on-10: #1c1c1c;
+$light-on-50: #6e6e73;
+$light-on-90: #e5e5e7;
+
+$dark-bg-10: #1b1b1d;
+$dark-bg-20: #1d1d1f;
+
+$dark-on-10: #ffffff;
+$dark-on-20: #38383a;
+$dark-on-60: #98989d;
+
+// Transparency variants (shared between themes)
+$dark-100-30: rgba(black, 0.3);
+
+// Light transparency (light-bg in light theme, dark-on in dark theme)
+$light-30: rgba(255, 255, 255, 0.3);
+$light-50: rgba(255, 255, 255, 0.5);
+$light-70: rgba(255, 255, 255, 0.7);
+
+// Dark transparency (light-on in light theme, dark-bg in dark theme)
+$dark-30: rgba(27, 27, 27, 0.3);
+$dark-50: rgba(27, 27, 27, 0.5);
+$dark-70: rgba(27, 27, 27, 0.7);
+
+// Mixin to convert SCSS maps to CSS custom properties
+@mixin set-vars($sass-map) {
+  @each $name, $value in $sass-map {
+    --#{$name}: #{$value};
+  }
+}
+
+// Shared values between themes
+$shared-palette: (
+  accent-primary: $blue-70,
+  shadow-black: $dark-100-30,
+  font-family: (
+    -apple-system,
+    BlinkMacSystemFont,
+    'Inter',
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif,
+  ),
+  cursor-default: (
+    url('/assets/cursors/normal-select.svg'),
+    auto,
+  ),
+  menu-bar-height: 2.5rem,
+);
+
+// Light theme palette
+$palette-light: (
+  text-primary: $light-on-10,
+  text-secondary: $light-on-50,
+  text-primary-10: rgba(27, 27, 27, 0.1),
+  gradient-start: #667eea,
+  gradient-end: #764ba2,
+  surface-backdrop: $light-30,
+  surface-overlay: $light-50,
+  text-subtle: $dark-30,
+  border-subtle: $dark-50,
+  dock-shadow-light: $light-70,
+  dock-shadow-dark: $dark-70,
+  surface-primary: $light-bg-10,
+  surface-base: $light-bg-20,
+  border: $light-on-90,
+);
+
+// Dark theme palette
+$palette-dark: (
+  text-primary: $dark-on-10,
+  text-secondary: $dark-on-60,
+  text-primary-10: rgba(255, 255, 255, 0.1),
+  gradient-start: #8b9bff,
+  gradient-end: #9d7fc9,
+  surface-backdrop: $dark-30,
+  surface-overlay: $dark-50,
+  text-subtle: $light-30,
+  border-subtle: $light-50,
+  dock-shadow-light: $dark-70,
+  dock-shadow-dark: $light-70,
+  surface-primary: $dark-bg-10,
+  surface-base: $dark-bg-20,
+  border: $dark-on-20,
+);

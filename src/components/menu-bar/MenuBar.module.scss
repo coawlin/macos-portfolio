@@ -1,0 +1,43 @@
+.menuBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 24px;
+  width: 100%;
+
+  background-color: var(--surface-backdrop);
+
+  color: var(--text-primary);
+  fill: var(--text-primary);
+
+  position: relative;
+  z-index: 100;
+
+  &::before {
+    content: '';
+
+    width: inherit;
+    height: inherit;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    z-index: -1;
+    backdrop-filter: blur(12px);
+  }
+}
+
+.appleIcon {
+  margin-left: 20px;
+  position: relative;
+  fill: var(--text-primary);
+}
+
+.rightMenuBar {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}

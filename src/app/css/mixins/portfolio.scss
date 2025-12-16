@@ -1,0 +1,135 @@
+// Portfolio Component Mixins
+// Common styling patterns shared across portfolio sections
+
+// Container base
+@mixin portfolio-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background: var(--surface-base);
+  padding: 2rem;
+}
+
+// Gradient text effect
+@mixin gradient-text {
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Card base styling
+@mixin card-base {
+  background: var(--surface-primary);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  :global(body.dark) & {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+}
+
+// Card hover effect
+@mixin card-hover {
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(102, 126, 234, 0.2);
+
+    :global(body.dark) & {
+      box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+    }
+  }
+}
+
+// Section title styling
+@mixin section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  @include gradient-text;
+  letter-spacing: -0.02em;
+}
+
+// Text secondary styling
+@mixin text-secondary {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+// Fade in animation
+@mixin fade-in($delay: 0s) {
+  animation: fadeIn 0.6s ease $delay backwards;
+}
+
+// Slide up animation
+@mixin slide-up($delay: 0s) {
+  animation: slideUp 0.6s ease $delay backwards;
+}
+
+// Button/Filter base styling
+@mixin filter-button {
+  padding: 0.625rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--surface-primary);
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--gradient-start);
+    color: var(--gradient-start);
+    transform: translateY(-1px);
+  }
+
+  &.active {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  }
+}
+
+// Gradient border hover effect
+@mixin gradient-border-hover {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover::before {
+    transform: scaleX(1);
+  }
+}
+
+// Grid layout patterns
+@mixin grid-auto-fit($min-width: 240px) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+  gap: 1rem;
+}
+
+// Staggered animation for children
+@mixin stagger-animation($children-count: 10, $delay-step: 0.05s) {
+  @for $i from 1 through $children-count {
+    &:nth-child(#{$i}) {
+      animation-delay: #{($i - 1) * $delay-step};
+    }
+  }
+}

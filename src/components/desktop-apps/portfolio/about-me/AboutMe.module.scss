@@ -1,0 +1,159 @@
+@use '@/app/css/mixins/portfolio' as *;
+
+.container {
+  @include portfolio-container;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+// Header Section
+.header {
+  animation: fadeIn 0.6s ease;
+}
+
+.name {
+  @include section-title;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem 0;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+// Highlights Grid
+.highlightsGrid {
+  @include grid-auto-fit(240px);
+  @include fade-in(0.2s);
+}
+
+.highlightCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--surface-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: var(--gradient-start);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+
+    .highlightIcon {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.highlightIcon {
+  font-size: 2rem;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.highlightInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.highlightLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.highlightValue {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+// About Section
+.aboutSection {
+  animation: fadeIn 0.6s ease 0.4s backwards;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: var(--text-primary);
+}
+
+.aboutContent {
+  background: var(--surface-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1.75rem;
+
+  p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin: 0 0 1rem 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Scrollbar
+.container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 3px;
+
+  &:hover {
+    background: #8e8e93;
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .name {
+    font-size: 2rem;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .highlightsGrid {
+    grid-template-columns: 1fr;
+  }
+}

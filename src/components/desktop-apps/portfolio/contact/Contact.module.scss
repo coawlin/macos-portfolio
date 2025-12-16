@@ -1,0 +1,244 @@
+@use '@/app/css/mixins/portfolio' as *;
+
+.container {
+  @include portfolio-container;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+// Header
+.header {
+  text-align: center;
+  animation: fadeIn 0.6s ease;
+}
+
+.title {
+  @include section-title;
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+}
+
+.subtitle {
+  @include text-secondary;
+  margin: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+// Contact Grid
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+  animation: slideUp 0.6s ease backwards;
+  animation-delay: 0.2s;
+}
+
+.contactCard {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 2rem;
+  text-decoration: none;
+  background: var(--surface-primary);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+
+  :global(body.dark) & {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(102, 126, 234, 0.25);
+    border-color: var(--gradient-start);
+
+    :global(body.dark) & {
+      box-shadow: 0 12px 24px rgba(102, 126, 234, 0.35);
+    }
+
+    &::before {
+      transform: scaleX(1);
+    }
+
+    .icon {
+      transform: scale(1.1);
+    }
+
+    .arrow {
+      transform: translateX(4px);
+      opacity: 1;
+    }
+  }
+}
+
+.iconWrapper {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+
+  :global(body.dark) & {
+    background: linear-gradient(
+      135deg,
+      rgba(102, 126, 234, 0.15) 0%,
+      rgba(118, 75, 162, 0.15) 100%
+    );
+  }
+}
+
+.icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.cardContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cardLabel {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.cardValue {
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+}
+
+.cardDescription {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.arrow {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 1.5rem;
+  color: var(--gradient-start);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+// Call to Action
+.callToAction {
+  text-align: center;
+  padding: 2.5rem 2rem;
+  background: var(--surface-primary);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.6s ease backwards;
+  animation-delay: 0.4s;
+
+  :global(body.dark) & {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.ctaTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: var(--text-primary);
+}
+
+.ctaText {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .contactCard {
+    padding: 1.5rem;
+  }
+
+  .ctaTitle {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,18 @@
+.time {
+  display: flex;
+  align-items: center;
+
+  font-weight: 500;
+  font-size: 0.8rem;
+  font-family: var(--font-family);
+
+  letter-spacing: 0.3px;
+
+  position: relative;
+
+  height: 100%;
+
+  text-shadow: 0 0 1px var(--shadow-black);
+
+  cursor: inherit;
+}

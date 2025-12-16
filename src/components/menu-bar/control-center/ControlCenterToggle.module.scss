@@ -1,0 +1,32 @@
+.menuParent {
+  z-index: 1;
+  position: absolute;
+  right: 1rem;
+  margin-top: 4.5px;
+
+  &.hidden {
+    visibility: hidden;
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+
+  background: none;
+  border: none;
+
+  margin-right: 0.7rem;
+
+  cursor: pointer;
+
+  svg,
+  svg path {
+    height: 1rem;
+    width: 1rem;
+
+    fill: var(--text-primary) !important;
+
+    position: relative;
+  }
+}

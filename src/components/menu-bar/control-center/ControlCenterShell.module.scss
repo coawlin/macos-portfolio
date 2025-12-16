@@ -1,0 +1,27 @@
+.container {
+  --border-size: 0;
+
+  display: block;
+
+  width: 19.5rem;
+
+  padding: 0.75rem;
+
+  position: relative;
+
+  user-select: none;
+
+  background-color: var(--surface-backdrop);
+  backdrop-filter: blur(12px);
+
+  border-radius: 1rem;
+
+  box-shadow:
+    var(--shadow-black) 0px 0px 11px 0px,
+    inset 0 0 0 var(--border-size) var(--text-subtle),
+    0 0 0 var(--border-size) var(--border-subtle);
+
+  :global(body.dark) & {
+    --border-size: 0.5px;
+  }
+}
