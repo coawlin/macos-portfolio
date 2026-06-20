@@ -18,8 +18,8 @@ export const contacts: ContactItem[] = [
       dark: '/assets/app-icons/portfolio/mail-dark.svg',
     },
     label: 'Email',
-    value: 'coawlin@hotmail.com',
-    href: 'mailto:coawlin@hotmail.com',
+    value: 'coawlin@gmail.com',
+    href: 'mailto:coawlin@gmail.com',
     description: 'Send me an email for any inquiries or opportunities',
   },
   {

@@ -13,6 +13,28 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: 1,
+    title: 'Plan of Action (POA) Tracker',
+    company: 'Apple',
+    description:
+      'A collaborative launch planning and operational tracking system replacing manual spreadsheet workflows with dynamic horizontal Gantt grids, inline draggable dependencies, and state-synchronized filters.',
+    role: 'Lead Full Stack Engineer',
+    techStack: [
+      'Angular',
+      'NestJS',
+      'TypeScript',
+      'PostgreSQL',
+      'TypeORM',
+      'Server-Sent Events (SSE)',
+      'BullMQ',
+      'Redis',
+      'AWS S3',
+      'Kubernetes',
+      'Docker',
+    ],
+    category: 'Web Application',
+  },
+  {
+    id: 2,
     title: 'Multi-Tenant Notification Platform',
     company: 'Keysight Technologies',
     description:
@@ -32,7 +54,7 @@ export const projects: Project[] = [
     category: 'Microservices with UI Library',
   },
   {
-    id: 2,
+    id: 3,
     title: 'Desktop App in Cloud (AWS AppStream Virtualization)',
     company: 'Keysight Technologies',
     description:
@@ -51,7 +73,7 @@ export const projects: Project[] = [
     category: 'Desktop Virtualization',
   },
   {
-    id: 3,
+    id: 4,
     title: 'Analytics App',
     company: 'Keysight Technologies',
     description:
@@ -61,7 +83,7 @@ export const projects: Project[] = [
     category: 'Web Application',
   },
   {
-    id: 4,
+    id: 5,
     title: 'Cloud License Server',
     company: 'Keysight Technologies',
     description:
@@ -71,7 +93,7 @@ export const projects: Project[] = [
     category: 'Web Application',
   },
   {
-    id: 5,
+    id: 6,
     title: 'PathWave BenchVue AC Source Avionics',
     company: 'Keysight Technologies',
     description:
@@ -81,7 +103,7 @@ export const projects: Project[] = [
     category: 'Web Application',
   },
   {
-    id: 6,
+    id: 7,
     title: 'Internal NES Firmware Update Tool',
     company: 'Keysight Technologies',
     description:
@@ -91,7 +113,7 @@ export const projects: Project[] = [
     category: 'Web Application',
   },
   {
-    id: 7,
+    id: 8,
     title: 'E-commerce Platform',
     company: 'Ox Street',
     description:
