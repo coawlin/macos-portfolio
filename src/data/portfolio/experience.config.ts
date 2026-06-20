@@ -53,6 +53,7 @@ export const experiences: Experience[] = [
     endDate: 'Feb 2026',
     description: [
       'Designed and established the architecture of a high-impact, npm-distributed visual component library containing custom SVG path generators and automatic scale calculation algorithms, decreasing frontend development effort by 40% across 3 distinct hardware product lines (Oscilloscopes, Power Supplies, and Digital Multimeters).',
+      'Developed an internal React-based firmware configuration and orchestration panel integrated with a .NET Core and C# backend, standardizing calibration download sequences.',
       'Maintained clean rendering performance on large-scale datasets by optimizing Plotly.js plotting layers, bypassing browser DOM limitations under heavy state updates.',
       'Engineered a multi-tenant client-side notification engine integrated with a NATS-over-WebSocket pub/sub stream, implementing JWT-based client-side authentication to serve 6 internal services.',
       'Pioneered cloud migration of legacy Windows desktop applications using AWS AppStream 2.0 streaming nodes, configuring Keycloak SAML/OIDC federated auth, and writing custom Node.js wrappers to manage session lifecycles.',
@@ -61,6 +62,7 @@ export const experiences: Experience[] = [
     ],
     technologies: [
       'Angular',
+      'React',
       'TypeScript',
       'NgRx',
       'Plotly.js',
